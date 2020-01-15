@@ -1,0 +1,126 @@
+
+<!-- This is example : Custom tab for your favorite macros Part 2   -->
+
+
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+
+  <!-- Add Custom tab to the ribbon with your favorite buttons-->
+  <!-- The example add five groups to the new tab -->
+  <!-- On the third group there is a menu with five options-->
+  <!-- On the fourth group there is a splitbutton example-->
+  <!-- On the fifth group there are button groups (the last one with built-in buttons)-->
+
+  <ribbon>
+    <tabs>
+      <tab id="TerraTab" label="Terra" insertAfterMso="TabView" keytip="/">
+				
+  	  <group id="productivityGroup" label="Productivity">
+          <button id="btnCircSwitch" label="Circularity" size="large" onAction="callCircSwitch" imageMso="ReviewPreviousComment" keytip="C"/>
+          <button id="btnAutoFit" label="Auto Fit" size="normal" onAction="callAutoFit" imageMso="ColumnWidth" keytip="W"/>
+          <button id="btnCycleAccentBackground" label="Cell Fill" size="normal" onAction="callCycleAccentBackground" imageMso="AppointmentColorDialog" keytip="K"/>
+          <button id="btnSelectCurrentPAge" label="Select Page" size="normal" onAction="callSelectCurrentPage" imageMso="ZoomFitToWindow" keytip="A"/>
+          <separator id="productivitySeparator1" />
+          <button id="btnTogglePageBreaks" label="Toggle Breaks" size="normal" onAction="callTogglePageBreaks" imageMso="PrintTitles" keytip="B"/>
+          <button id="btnUnhideEverySheet" label="Unhide Sheets" size="normal" onAction="callUnhideEverySheet" imageMso="ReviewCompareMenu" keytip="U"/>
+        </group>
+
+        <group id="cleanupGroup" label="Cleanup">
+          <button id="btnDropEveryStyle" label="Every Style" size="normal" onAction="callDropEveryStyle" imageMso="Delete" keytip="!E"/>
+          <button id="btnDropUnusedStyle" label="Unused Styles" size="normal" onAction="callDropUnusedStyles" imageMso="Delete" keytip="!S"/>
+	    <button id="btnRemoveUnusedFormats" label="Unused Formats" size="normal" onAction="callRemoveUnusedNumberFormats" imageMso="Delete" keytip="!F"/>
+          <separator id="cleanupSeparator1" />
+	    <button id="btnResetComments" label="Fix Comments" size="normal" onAction="callResetComments" imageMso="ReviewNewComment" keytip="M"/>
+          <button id="btnResetZoom" label="Reset Zoom" size="normal" onAction="callResetZoom" imageMso="ZoomToSelection" keytip="Z"/>
+        </group>
+
+      </tab>
+    </tabs>
+
+    <contextualTabs>
+
+      <tabSet idMso="TabSetChartTools" >
+ 
+	<tab id="TerraChart" label="Terra" keytip=".">
+	<group id="ChartToolsGroup1" label="Productivity">
+		<button id="btnLastPointLabel" label="Last Label" size="normal" onAction="callLastPointLabel" imageMso="Delete" keytip="L" />
+		<button id="btnLabelsFromRange" label="Labels from Range" size="normal" onAction="callLabelsFromRange" imageMso="Delete" keytip="R" />
+		<button id="btnFindReplaceInChart" label="Find &amp; Replace" size="normal" onAction="callFindReplaceInChart" imageMso="Delete" keytip="H" />
+            <separator id="chartSeparator1" />
+          <splitButton id="mySplitButton" size="large" keytip="X">
+            <button id="customButton13" imageMso="ChartAxes" label="Toggle Axis" supertip="This is a splitButton." onAction="callToggleAxis" keytip="X"/>
+            <menu id="menuToggleAxis" itemSize="normal">
+            	<button id="btnAxis1" label="Primary Vertical"  onAction="callAxisPV" imageMso="ChartPrimaryVerticalAxis" keytip="V"/>
+	            <button id="btnAxis2" label="Primary Horizontal"  onAction="callAxisPH" imageMso="ChartPrimrayHorizontalAxis" keytip="H"/>
+	            <button id="btnAxis3" label="Secondary Vertical"  onAction="callAxisSV" imageMso="ChartSecondaryVerticalAxis" keytip="B"/>
+	            <button id="btnAxis4" label="Secondary Horizontal"  onAction="callAxisSH" imageMso="ChartSecondaryHorizontalAxis" keytip="J"/>
+            </menu>
+	    </splitButton>
+		<button id="btnApplyDefaults" label="Apply Defaults" size="large" onAction="callApplyChartDefaults" imageMso="Delete" keytip="D" />
+	</group>
+
+ 	<!-- <group id="ChartToolsGroup2" label="My Table Tools">
+
+          	<button id="customcButton1" label="My Super Macro 1" size="large" onAction="RDB_Macro1" imageMso="AppointmentColor1"
+			supertip="Information that is visible for My Super Macro 1."/>
+
+          	<button id="customcButton2" label="My Super Macro 2" size="large" onAction="RDB_Macro2" imageMso="AppointmentColor2" 
+			supertip="Information that is visible for My Super Macro 2." />
+	</group> -->
+	</tab>
+
+      </tabSet>
+
+    </contextualTabs>
+
+  </ribbon>
+
+</customUI>
+
+
+
+	  <!--
+        <group id="customGroup3" label="Group 3">
+          <menu id="MyDropdownMenu" label="My Menu" size="large" imageMso="TextAlignGallery"  >
+            <button id="customButton8" label="Caption 8"  onAction="Macro8" imageMso="TextAlignGallery" />
+            <button id="customButton9" label="Caption 9"  onAction="Macro9" imageMso="TextAlignGallery" />
+            <button id="customButton10" label="Caption 10"  onAction="Macro10" imageMso="TextAlignGallery" />
+            <button id="customButton11" label="Caption 11"  onAction="Macro11" imageMso="TextAlignGallery" />
+            <button id="customButton12" label="Caption 12"  onAction="Macro12" imageMso="TextAlignGallery" />
+          </menu>
+        </group>
+
+        <group id="customGroup4" label="Group 4">
+          <splitButton id="mySplitButton" size="large">
+            <button id="customButton13" imageMso="HappyFace" label="Caption 13" supertip="This is a splitButton." onAction="Macro13"/>
+            <menu id="splitMenu" itemSize="large">
+              <button id="customButton14" imageMso="FormatPainter" label="Caption 14" onAction="Macro14" description="Info macro 14"/>
+              <button id="customButton15" imageMso="FormatPainter" label="Caption 15" onAction="Macro15" description="Info macro 15"/>
+              <button id="customButton16" imageMso="FormatPainter" label="Caption 16" onAction="Macro16" description="Info macro 16"/>
+            </menu>
+          </splitButton>
+        </group>
+
+
+	  <group id="customGroup5" label="Group 5">
+          
+          <buttonGroup id="mybuttonGroup1">
+            <button id="customButton17" label="Caption 17" showLabel="false" onAction="Macro17" imageMso="ReviewPreviousComment" />
+            <button id="customButton18" label="Caption 18"  showLabel="false" onAction="Macro18" imageMso="ReviewPreviousComment" />
+            <button id="customButton19" label="Caption 19" showLabel="false" onAction="Macro19" imageMso="ReviewPreviousComment" />
+            <button id="customButton20" label="Caption 20"  showLabel="false" onAction="Macro20" imageMso="ReviewPreviousComment" />
+          </buttonGroup>
+
+          <buttonGroup id="mybuttonGroup2">
+            <button id="customButton21" label="Caption 21" showLabel="false" onAction="Macro21" imageMso="HappyFace" />
+            <button id="customButton22" label="Caption 22"  showLabel="false" onAction="Macro22" imageMso="HappyFace" />
+            <button id="customButton23" label="Caption 23"  showLabel="false" onAction="Macro23" imageMso="HappyFace" />
+          </buttonGroup>
+
+          <buttonGroup id="mybuttonGroup3">
+            <toggleButton idMso="Bold"/>
+            <toggleButton idMso="Italic"/>
+            <button idMso="VisualBasic" showLabel="false" />
+          </buttonGroup>
+
+        </group>
+	  -->
